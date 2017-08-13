@@ -8,6 +8,7 @@ ActivatorMenu.Items:Boolean("Tiamat", "Use Tiamat", true)
 ActivatorMenu.Items:Boolean("BOTRK", "Use BOTRK", true)
 ActivatorMenu.Items:Boolean("RHydra", "Use RHydra", true)
 ActivatorMenu.Items:Boolean("YGB", "Use GhostBlade", true)
+ActivatorMenu.Items:Boolean("YGBurf", "Use GhostBlade", true)
 ActivatorMenu.Items:Boolean("Gunblade", "Use Gunblade", true)
 ActivatorMenu.Items:Boolean("Randuins", "Use Randuins", true)
 
@@ -15,6 +16,7 @@ ActivatorMenu.Items:Boolean("Randuins", "Use Randuins", true)
 OnTick(function (myHero)
 	local target = GetCurrentTarget()
   local YGB = GetItemSlot(myHero, 3142)
+		local YGBurf = GetItemSlot(myHero, 3142)
 	local RHydra = GetItemSlot(myHero, 3074)
 	local Tiamat = GetItemSlot(myHero, 3077)
   local Gunblade = GetItemSlot(myHero, 3146)
@@ -27,6 +29,11 @@ OnTick(function (myHero)
             if ActivatorMenu.Items.YGB:Value() and YGB > 0 and Ready(YGB) and ValidTarget(target, 700) then
 			CastSpell(YGB)
             end
+			
+	    	if ActivatorMenu.Items.YGBurf:Value() and YGB > 0 and Ready(YGB) then
+			CastSpell(YGB)
+            end
+	
 
             if ActivatorMenu.Items.Randuins:Value() and Randuins > 0 and Ready(Randuins) and ValidTarget(target, 500) then
 			CastSpell(Randuins)
